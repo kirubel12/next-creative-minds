@@ -37,9 +37,9 @@ const Navbar = () => {
         <img className="w-12 rounded-full cursor-pointer" src={user.photoURL} />
         </Link>
         
-        <Link href="/logout">
+        <a className="cursor-pointer" onClick={() => auth.signOut()}>
           <p>Logout</p>
-        </Link>
+        </a>
             </div>
         )}
 
