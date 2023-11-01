@@ -13,10 +13,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-import { auth } from "../utils/firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
 const Navbar = () => {
-  const [user, loading] = useAuthState(auth);
   return (
     <nav className="flex justify-between m-10">
       <div>
@@ -26,22 +23,6 @@ const Navbar = () => {
       </div>
       <div className="flex gap-4 items-center">
         
-        {!user && (
-          <Link href="/auth/login">
-            <Button className="dark:bg-primary bg-slate-600">Join Now</Button>
-          </Link>
-        )}
-        {user && (
-            <div className="flex gap-4 items-center">
-        <Link href="/dashboard">
-        <img className="w-12 rounded-full cursor-pointer" src={user.photoURL} />
-        </Link>
-        
-        <a className="cursor-pointer" onClick={() => auth.signOut()}>
-          <p>Logout</p>
-        </a>
-            </div>
-        )}
 
         <ModeToggle />
 
